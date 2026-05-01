@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 
+const BASE_URL = "https://player-backend-1.onrender.com";
+
 function App() {
   const [players, setPlayers] = useState([]);
   const [editingId, setEditingId] = useState(null);
@@ -21,7 +23,7 @@ function App() {
   }
 
   function getPlayers() {
-    fetch("http://localhost:8080/players")
+    fetch(`${BASE_URL}/players`)
       .then((response) => response.json())
       .then((data) => setPlayers(data));
   }
@@ -31,8 +33,8 @@ function App() {
 
     const method = editingId ? "PUT" : "POST";
     const url = editingId
-      ? `http://localhost:8080/players/${editingId}`
-      : "http://localhost:8080/players";
+      ? `${BASE_URL}/players/${editingId}`
+      : `${BASE_URL}/players`;
 
     fetch(url, {
       method,
@@ -57,7 +59,7 @@ function App() {
   }
 
   function deletePlayer(id) {
-    fetch(`http://localhost:8080/players/${id}`, {
+    fetch(`${BASE_URL}/players/${id}`, {
       method: "DELETE"
     }).then(() => {
       alert("Player deleted!");
@@ -111,7 +113,7 @@ function App() {
             <p className="tag">Full Stack CRUD Project</p>
             <h1>Player Management Dashboard</h1>
             <p className="subtitle">
-              React + Spring Boot + MySQL project with CRUD, search and stats.
+              React + Spring Boot deployed project 🚀
             </p>
           </div>
 
