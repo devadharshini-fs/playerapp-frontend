@@ -17,4 +17,5 @@ Database: MySQL
 React | Spring Boot | MySQL | REST API
 
 ## Backend Repository
-https://github.com/your-username/player-backend
+https://github.com/devadharshini-fs/player-backend.git
+
