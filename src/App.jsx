@@ -68,8 +68,9 @@ function App() {
   }
 
   useEffect(() => {
-    getPlayers();
-  }, []);
+  fetch("https://player-backend-1.onrender.com/players")
+    .then(() => getPlayers());
+}, []);
 
   const filteredPlayers = players.filter((p) =>
     p.playerName.toLowerCase().includes(search.toLowerCase())
